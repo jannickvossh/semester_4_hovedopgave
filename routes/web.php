@@ -15,7 +15,11 @@ Route::prefix('user')->group(function () {
 
 // User sessions
 Route::prefix('session')->group(function () {
-    Route::get('/login', [SessionController::class, 'login'])->name('session.login');
-    Route::post('/authenticate', [SessionController::class, 'authenticate'])->name('session.authenticate');
-    Route::post('/logout', [SessionController::class, 'logout'])->name('session.logout');
+    Route::middleware(['guest'])->group(function () {
+        Route::get('/login', [SessionController::class, 'login'])->name('session.login');
+        Route::post('/authenticate', [SessionController::class, 'authenticate'])->name('session.authenticate');
+    });
+    Route::middleware(['auth'])->group(function () {
+        Route::post('/logout', [SessionController::class, 'logout'])->name('session.logout');
+    });
 });
