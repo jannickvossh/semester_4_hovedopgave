@@ -1,32 +1,21 @@
-@extends('components/layout/page')
+@extends('layout/page')
 
 @section('content')
     <form action="{{ route('session.authenticate') }}" method="POST" class="form">
         @csrf
 
         <div class="form__item">
-            <label for="username" class="form__label">Username</label>
+            <x-label for="username">Username</x-label>
+            <x-input.text autofocus :name="'username'"></x-input.text>
 
-            <input
-                type="text"
-                name="username"
-                id="username"
-                class="form__input form__input--text"
-                required
-                autofocus
-            >
+            @error('username')
+                <div class="error-message">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form__item">
-            <label for="password" class="form__label">Password</label>
-
-            <input
-                type="password"
-                name="password"
-                id="password"
-                class="form__input form__input--password"
-                required
-            >
+            <x-label for="password">Password</x-label>
+            <x-input.password :name="'password'"></x-input.password>
         </div>
 
         <button type="submit" class="button">Log in</button>

@@ -9,8 +9,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Register users
 Route::prefix('user')->group(function () {
-    Route::get('/register', [UserController::class, 'create'])->name('user.register');
-    Route::put('/store', [UserController::class, 'store'])->name('user.store');
+    Route::middleware(['guest'])->group(function () {
+        Route::get('/register', [UserController::class, 'create'])->name('user.register');
+        Route::put('/store', [UserController::class, 'store'])->name('user.store');
+    });
 });
 
 // User sessions

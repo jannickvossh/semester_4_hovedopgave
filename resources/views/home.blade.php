@@ -1,4 +1,4 @@
-@extends('components/layout/page')
+@extends('layout/page')
 
 @section('content')
     <h1>Home</h1>
