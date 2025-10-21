@@ -1,15 +1,13 @@
 @extends('layout/page')
 
 @section('content')
-    <h1>Dashboard</h1>
-    @auth
-        <p>{{ auth()->user()->username }}</p>
-        <p>{{ auth()->user()->role_id }}</p>
+    <h1>{{ __('Dashboard') }}</h1>
 
-        <form action="{{ route('session.logout') }}" method="POST" class="form">
-            @csrf
+    <x-locale-selector></x-locale-selector>
 
-            <button type="submit" class="button">Log out</button>
-        </form>
-    @endauth
+    <form action="{{ route('session.logout') }}" method="POST" class="form">
+        @csrf
+
+        <button type="submit" class="button">Log out</button>
+    </form>
 @endsection

@@ -17,6 +17,7 @@ class User extends Authenticatable
         'email',
         'username',
         'password',
+        'locale'
     ];
 
     protected $hidden = [
@@ -37,12 +38,12 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'roles');
     }
 
-    public function isUser()
+    public function isUser(): bool
     {
         return $this->role_id === 1;
     }
 
-    public function isAdmin()
+    public function isAdmin(): bool
     {
         return $this->role_id === 2;
     }

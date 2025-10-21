@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->foreignId('role_id')->default(1)->constrained();
+            $table->string('locale')->default('en');
             $table->rememberToken();
             $table->timestamps();
         });

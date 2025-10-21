@@ -28,5 +28,10 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('is_admin', function (User $user) {
             return $user->isAdmin();
         });
+
+        view()->composer('components.locale-selector', function($view) {
+            $view->with('currentLocale', app()->getLocale());
+            $view->with('availableLocales', config('app.available_locales'));
+        });
     }
 }

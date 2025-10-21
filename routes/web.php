@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LocaleController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -25,3 +26,6 @@ Route::prefix('session')->group(function () {
         Route::post('/logout', [SessionController::class, 'logout'])->name('session.logout');
     });
 });
+
+// Locale selector
+Route::get('/locale/{locale}', [LocaleController::class, 'selectLocale'])->name('locale');
