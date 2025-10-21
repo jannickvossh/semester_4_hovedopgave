@@ -29,4 +29,11 @@ class SessionController extends Controller
 
         return back();
     }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('home');
+    }
 }

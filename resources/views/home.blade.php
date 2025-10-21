@@ -5,5 +5,11 @@
     @auth
         <p>{{ auth()->user()->username }}</p>
         <p>{{ auth()->user()->role_id }}</p>
+
+        <form action="{{ route('session.logout') }}" method="POST" class="form">
+            @csrf
+
+            <button type="submit" class="button">Log out</button>
+        </form>
     @endauth
 @endsection
