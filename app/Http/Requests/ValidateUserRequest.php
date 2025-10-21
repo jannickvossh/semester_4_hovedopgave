@@ -30,6 +30,7 @@ class ValidateUserRequest extends FormRequest
             'firstname'         => 'First name',
             'lastname'          => 'Last name',
             'email'             => 'E-mail address',
+            'username'          => 'Username',
             'password'          => 'Password',
             'passwordConfirm'   => 'Password confirm'
         ];

@@ -9,6 +9,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('session')->group(function () {
     Route::get('/login', [SessionController::class, 'login'])->name('session.login');
+    Route::post('/authenticate', [SessionController::class, 'authenticate'])->name('session.authenticate');
 });
 
 Route::prefix('user')->group(function () {

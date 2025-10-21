@@ -1,7 +1,7 @@
 @extends('components/layout/page')
 
 @section('content')
-    <form action="" method="POST" class="form">
+    <form action="{{ route('session.authenticate') }}" method="POST" class="form">
         @csrf
 
         <div class="form__item">
